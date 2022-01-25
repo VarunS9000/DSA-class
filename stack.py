@@ -32,7 +32,7 @@ def pop():
 def multipop(iterations):
     global max_size
     global stack
-    if(iterations>len(stack)):
+    if(iterations>len(stack[:top_index+1])):
         print('This operation will cause stack underflow')
 
     else:
