@@ -1,5 +1,5 @@
 max_size = 5
-top_index = 0
+top_index = -1
 stack = [None]*max_size
 
 
@@ -8,10 +8,10 @@ def push(element):
     global top_index
     global stack
     global max_size
-    if(top_index<max_size):
-        stack[top_index] = element
+    if(top_index+1<max_size):
         top_index+=1
-        print(stack[:top_index])
+        stack[top_index] = element
+        print(stack[:top_index+1])
 
     else:
         print('Stack Overflow')
@@ -24,7 +24,7 @@ def pop():
     if(top_index>=0):
         stack[top_index] = None
         top_index-=1
-        print(stack[:top_index])
+        print(stack[:top_index+1])
     else:
         print('Stack underflow')
 
