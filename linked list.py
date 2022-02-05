@@ -98,9 +98,6 @@ while True:
     elif(x==4):
         deleteEnd(current,start)
 
-    elif(x==5):
-        start=reverse(start)
-
     elif(x==0):
         break
     
