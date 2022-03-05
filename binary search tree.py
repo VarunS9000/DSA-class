@@ -41,6 +41,42 @@ def insert(root,value):
     return root
 
 
+def minValueNode(node):
+    current = node
+    while current.left is not None:
+        current = current.left
+
+    return current
+
+def delete(root,value):
+    if root is None:
+        return root
+
+    if value<root.value:
+        root.left = delete(root.left,value)
+
+    elif value>root.value:
+        root.right = delete(root.right,value)
+
+    else:
+        if root.left is None:
+            temp = root.right
+            root = None
+            return temp
+
+        elif root.right is None:
+            temp = root.left
+            root = None
+            return root
+
+        temp = minValueNode(root.right)
+        root.value = temp.value
+        root.right = delete(root.right,temp.value)
+
+    return root
+        
+
+
 Root = Node(48)
 insert(Root,73)
 insert(Root,21)
@@ -49,4 +85,7 @@ insert(Root,34)
 insert(Root,60)
 insert(Root,97)
 
-postorder(Root)
+inorder(Root)
+delete(Root,48)
+print('****************************************')
+inorder(Root)
